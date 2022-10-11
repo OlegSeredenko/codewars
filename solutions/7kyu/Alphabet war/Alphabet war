@@ -1,0 +1,17 @@
+<?php
+
+function alphabetWar($fight)
+{
+  $left = [1 =>'s',2 =>'b',3 => 'p',4 =>'w'];
+  $right = [1 =>'z',2 =>'d',3 => 'q',4 =>'m'];
+  $sum_left = 0;
+  $sum_right = 0;
+  for($i = 0; $i < strlen($fight); $i++){
+    if(in_array($fight[$i], $left)){
+      $sum_left = $sum_left + (array_search($fight[$i], $left));
+    }elseif(in_array($fight[$i], $right)){
+      $sum_right = $sum_right + (array_search($fight[$i], $right));
+    }
+  }
+  return ($sum_left == $sum_right) ? "Let's fight again!" :  (($sum_left > $sum_right) ? "Left side wins!": "Right side wins!");
+}
